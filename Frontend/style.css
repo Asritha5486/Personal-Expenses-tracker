@@ -1,0 +1,320 @@
+/* frontend/style.css - Lavender and Purple Theme with Background Image */
+
+:root {
+    /* Primary Colors: Deep Purple and Lavender */
+    --primary-color: #673AB7; /* Deep Violet/Purple */
+    --primary-light: #9575CD; /* Medium Lavender */
+    --secondary-color: #FF8A80; /* Soft Coral Pink Accent for buttons/borders */
+    
+    --expense-color: #E91E63; /* Bright Magenta/Pink for expenses */
+    --income-color: #4CAF50; /* Clean Green for income */
+    
+    --bg-surface: #EDE7F6; /* Pale lavender surface for general background */
+    --bg-card: #FFFFFF; /* White card backgrounds for contrast */
+    --text-color-dark: #311B92; /* Deep indigo text for main content */
+    --text-color-light: #6A1B9A; /* Lighter purple for secondary text */
+    
+    --shadow-deep: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --shadow-light: 0 4px 10px rgba(150, 100, 200, 0.2);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+    /* --- CUTE BACKGROUND IMAGE --- */
+    /* Using the Freepik URL you provided as an example. */
+    background-image: url('https://img.freepik.com/free-vector/hand-painted-watercolor-abstract-watercolor-background_23-2149018547.jpg?semt=ais_hybrid&w=740&q=80'); 
+    background-size: cover; 
+    background-position: center bottom; 
+    background-attachment: fixed; 
+    background-color: var(--bg-surface); 
+    
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-deep);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 img {
+    height: 40px; 
+    margin-right: 15px;
+    filter: brightness(0) invert(1);
+}
+
+
+header p#api-status {
+    font-size: 0.9em;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Main Layout Container --- */
+.container {
+    max-width: 1300px;
+    margin: 20px auto; 
+    padding: 0 20px;
+    display: flex;
+    gap: 35px;
+    flex-grow: 1; 
+}
+
+section {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-deep);
+    border: 1px solid #d1c4e9;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* --- KPI Cards (Enhanced Look) --- */
+#dashboard {
+    flex: 2; 
+}
+
+#transaction-manager {
+    flex: 1; 
+}
+
+.kpi-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    text-align: center;
+    padding: 25px 15px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: #fdfafa;
+    box-shadow: var(--shadow-deep);
+}
+
+.card h3 {
+    font-size: 1.1em;
+    color: var(--text-color-light);
+    margin-bottom: 5px;
+}
+
+.amount {
+    font-size: 2.2em;
+    font-weight: 800;
+}
+
+.positive {
+    color: var(--income-color);
+}
+
+.negative {
+    color: var(--expense-color);
+}
+
+/* --- Chart Styles --- */
+.charts-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--primary-light); 
+}
+
+.chart-box h3 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+#pie-chart, #bar-chart {
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- Form Styles (Applies to Transaction Form) --- */
+#transaction-form label {
+    display: block; 
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+#transaction-form input,
+#transaction-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px; 
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #fcfcfc;
+    color: var(--text-color-dark);
+}
+
+#transaction-form input:focus,
+#transaction-form select:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 138, 128, 0.5);
+}
+
+#transaction-form button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: var(--shadow-light);
+    width: 100%; 
+}
+
+#transaction-form button:hover {
+    background-color: #ff6e8a;
+    transform: translateY(-2px);
+}
+
+/* --- Auth Section Specifics (FIXED WIDTH HERE) --- */
+#auth-section {
+    width: 100%; 
+    max-width: 400px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* frontend/style.css (Locate #auth-section) */
+
+#auth-section {
+    width: 100%; 
+    max-width: 400px; 
+    margin: 50px auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* FIX: Ensure the outer section also has proper box sizing */
+    box-sizing: border-box; 
+    padding: 0 10px; /* Minor horizontal padding to ensure it stays off the viewport edge */
+}
+
+/* FIX: Inner Form Container */
+#auth-section form {
+    width: 100%; 
+    padding: 25px; 
+    border: 1px solid var(--primary-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-deep);
+    background-color: var(--bg-card);
+    
+    /* FIX: Force padding calculation inside the 100% width */
+    box-sizing: border-box; 
+}
+
+/* FIX: CRITICAL STYLES FOR INPUT CONTAINMENT */
+#auth-section input,
+#auth-section select {
+    width: 100%; /* Make them span full width of the container */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    box-sizing: border-box; /* THIS FIXES THE OVERFLOW */
+    font-size: 1em;
+}
+
+#auth-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+#auth-section button:hover {
+    background-color: var(--primary-light);
+}
+
+/* Logout button styling */
+#logout-btn {
+    position: absolute; 
+    top: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+#logout-btn:hover {
+    background-color: #ff6e8a;
+    transform: translateY(-1px);
+}
+
+/* Adjustments for SVG elements in D3.js */
+#pie-chart text {
+    fill: var(--text-color-dark) !important;
+    font-weight: 600;
+}
+#bar-chart text {
+    fill: var(--text-color-dark) !important;
+}

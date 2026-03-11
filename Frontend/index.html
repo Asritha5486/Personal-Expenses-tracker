@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expenses Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- D3.js for Data Visualization -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1> Expenses Tracker Dashboard</h1>
+        <p id="api-status">API Status: Checking...</p>
+        <button id="logout-btn" style="display: none;">Logout</button>
+    </header>
+
+    <div class="container">
+        
+        <!-- Authentication Section (Initially visible/used for login) -->
+        <section id="auth-section">
+            <h2>User Authentication</h2>
+            <form id="login-form">
+                <label for="username-auth">Username:</label>
+                <input type="text" id="username-auth" name="username-auth" required>
+                
+                <label for="password-auth">Password:</label>
+                <input type="password" id="password-auth" name="password-auth" required>
+                
+                <label for="auth-mode">Mode:</label>
+                <select id="auth-mode" name="auth-mode">
+                    <option value="login">Login</option>
+                    <option value="register">Register</option>
+                </select>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Dashboard Section (Hidden before login) -->
+        <section id="dashboard" style="display: none;">
+            <h2>Financial Overview</h2>
+            <div class="kpi-cards">
+                <div class="card">
+                    <h3>Net Balance</h3>
+                    <p id="net-balance" class="amount">$0.00</p>
+                </div>
+                <div class="card">
+                    <h3>Total Expenses (Month)</h3>
+                    <p id="total-expense" class="amount">$0.00</p>
+                </div>
+                <div class="card">
+                    <h3>Total Income (Month)</h3>
+                    <p id="total-income" class="amount">$0.00</p>
+                </div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h3>Expense Breakdown by Category</h3>
+                    <svg id="pie-chart" width="300" height="300"></svg>
+                </div>
+                <div class="chart-box">
+                    <h3>Monthly Spending Trend</h3>
+                    <svg id="bar-chart" width="450" height="350"></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transaction Management Section (Hidden before login) -->
+        <section id="transaction-manager" style="display: none;">
+            <h2>Add New Transaction</h2>
+            <form id="transaction-form">
+                <label for="amount">Amount ($):</label>
+                <input type="number" id="amount" name="amount" required>
+
+                <label for="type">Type:</label>
+                <select id="type" name="type" required>
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                </select>
+
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="Food">Food</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Rent">Rent</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description">
+
+                <button type="submit">Log Transaction</button>
+            </form>
+
+            <h3>Transaction History</h3>
+            <ul id="history-list">
+                <!-- Transaction list items would be appended here by JS -->
+            </ul>
+        </section>
+    </div>
+
+    <!-- Link to the main application logic -->
+    <script src="app.js"></script>
+</body>
+</html>
