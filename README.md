@@ -88,3 +88,74 @@ PERSONAL_EXPENSES_TRACKER/
 ├── node_modules/
 ├── package-lock.json
 └── README.md
+
+
+
+
+# Personal Expenses Tracker
+
+## 🚀 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Asritha5486/personal-expenses-tracker.git
+cd personal-expenses-tracker
+
+Install dependencies:
+
+npm install
+
+Configure the .env file:
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_NAME=pet_db
+JWT_SECRET=your_secret_key
+
+Start the server:
+
+node server.js
+
+Open index.html in your browser (or run via Live Server extension).
+
+📊 Usage
+
+Register a new user or login with existing credentials.
+
+Add transactions (income/expense) via the form.
+
+View real-time summary and charts on the dashboard.
+
+Edit or delete transactions as needed.
+
+Generate monthly or category reports for financial insights.
+
+🔒 Security Measures
+
+Passwords are hashed using Bcrypt before storage
+
+JWT authentication ensures secure session management
+
+Backend APIs are protected against unauthorized access
+
+📝 Future Enhancements
+
+Mobile-friendly responsive design
+
+AI-based spending predictions and recommendations
+
+Export reports to PDF/Excel
+
+Budget alerts and notifications
+
+📌 References
+
+Node.js Documentation
+
+Express.js Documentation
+
+MySQL Documentation
+
+D3.js Documentation
